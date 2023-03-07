@@ -1,0 +1,17 @@
+'use strict';
+
+const operationsContent = document.querySelectorAll('.operations__content');
+const tabContainer = document.querySelector('.operations__tab-container');
+
+tabContainer.addEventListener('click', (e) => {
+  const target = e.target.closest('.operations__tab');
+  if (!target) return;
+  const num = target.dataset.tab;
+  console.log(num);
+  operationsContent.forEach((el) => {
+    el.classList.remove('operations__content--active');
+    if (el.classList.contains(`operations__content--${num}`)) {
+      el.classList.add('operations__content--active');
+    }
+  });
+});
